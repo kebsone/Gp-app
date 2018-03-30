@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 //import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import {Cour} from '../shared/cour-model'
+import {ListCoursService} from '../services/list-cours-services/list-cours.service';
 
 @Component({
   selector: 'courses-list',
@@ -10,19 +12,15 @@ import {Cour} from '../shared/cour-model'
 })
 export class CoursesListComponent implements OnInit {
   cours : Array<Cour>;
+  coursPanier: Observable<Array<Cour>>;
+  coursPanierTmp : Array<Cour>;
   coursesObservable: Observable<any[]>;
 
-  constructor() { 
+  constructor(private listCousService: ListCoursService) { 
   }
 
   ngOnInit() {
-    this.cours = [
-       new Cour(1,"Cour  de mathématique niveau primaire et secondaire. Vous pouvez réserver vos horaires en suivant le lien","mathématique","50€","https://www.mathematiquesfaciles.com/index-2.php"),
-       new Cour(2,"Cour anglais tous les niveaux. Suivez ce lien pour choisir votre formation","anglais","20€","https://www.britishcouncil.fr/anglais/en-ligne"),
-       new Cour(3,"Cour de physique et chimie. Tous les niveaux. Suivez ce lien pour découvrir notre site", "Physique chimie","20€", "https://www.doc-etudiant.fr/Sciences/Physique/"),
-       new Cour(4,"Cour informatique Tous les niveaux. Suivez ce lien pour découvrir notre site", "Informatique","20€","https://www.superprof.fr/blog/le-b-a-ba-du-cours-dinformatique/")
-
-      ]
+    this.listCousService.getListCours().subscribe((value:Array<Cour>)=>{this.cours=value});
    // this.coursesObservable = this.getCourses('/courses');
   }
 
@@ -31,5 +29,14 @@ export class CoursesListComponent implements OnInit {
     console.log(this.cours)
    // return this.db.list(listPath).valueChanges();
   }*/
+
+  public ajouterCour(course){
+    console.log("fsfsfsfsfsffs", course);
+    this.coursPanierTmp  =  Array<Cour>();
+    this.coursPanierTmp.push(course);
+;
+    this.listCousService.setListCours(Observable.of(this.coursPanierTmp));
+
+  }
 
 }

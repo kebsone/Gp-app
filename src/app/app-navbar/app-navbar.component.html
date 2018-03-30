@@ -7,18 +7,29 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item dropdown" ngbDropdown>
+      <li class="nav-item ">
+        <a class="nav-link" href="/cours">Cours <span class="sr-only">(current)</span></a>
+      </li>
+      <!--<li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Category</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu>
           <a class="dropdown-item" href="#">Angular</a>
           <a class="dropdown-item" href="#">React</a>
           <a class="dropdown-item" href="#">Vue.js</a>
         </div>
-      </li>
+      </li>-->
     </ul>
-    <div><i style="background: white;" class="fas fa-shopping-cart"></i></div>
+ <div class="row">
+   <div class="col-sm">
+   <i  class="fa fa-shopping-cart fa-3x mr-auto my-sm-0" aria-hidden="true"></i>
+  </div>
+  <div class="col-sm"><span class="badge badge-pill badge-danger">{{nbCoursAjoutes}}</span></div>
+  
+</div>
+  
+  
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>

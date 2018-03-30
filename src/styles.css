@@ -28,3 +28,19 @@ body {
     border-radius: 0.25rem;
     margin-bottom: 80%;
 }
+
+.fa-3x {
+    font-size: 2em !important;
+    color: white;
+}
+
+.position-badge {
+        margin-right: 60px;
+        width: 100%;
+        min-height: 1px;
+    
+}
+
+a.ancrage:hover,click{
+    text-decoration: none;
+    }

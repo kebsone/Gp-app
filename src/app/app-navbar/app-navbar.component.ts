@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ListCoursService} from '../services/list-cours-services/list-cours.service';
 import{ Observable} from 'rxjs/Observable';
+import { ListCoursChoisisService } from '../services/list-cours-choisis-services/list-cours-choisis.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './app-navbar.component.html',
@@ -8,10 +8,15 @@ import{ Observable} from 'rxjs/Observable';
 })
 export class AppNavbarComponent implements OnInit {
 nbCoursAjoutes: number;
-  constructor(private listCoursServiece : ListCoursService) { }
+navBarCollapse = true;
+  constructor(private listCoursChoisisService : ListCoursChoisisService) { }
 
   ngOnInit() {
-this.listCoursServiece.getListCours().subscribe((value)=>{ console.log(value);this.nbCoursAjoutes = value.length});
+  this.listCoursChoisisService.getNombreDeCoursChoisis().subscribe((value)=>{console.log(value)});
   }
+
+public afficherMenu(){
+  this.navBarCollapse = !this.navBarCollapse;
+}
 
 }

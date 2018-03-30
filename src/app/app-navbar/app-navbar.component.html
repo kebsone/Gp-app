@@ -1,16 +1,20 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="http://google.com" target="_blank">KebsonCode.com</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+ <button class="navbar-toggler" type="button" (click)="afficherMenu()" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault" [class.collapse]="navBarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item ">
         <a class="nav-link" href="/cours">Cours <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link" href="/contact">contact <span class="sr-only">(current)</span></a>
       </li>
       <!--<li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Category</a>
@@ -22,10 +26,11 @@
       </li>-->
     </ul>
  <div class="row">
-   <div class="col-sm">
+   <div class="col-sm position-panier">
    <i  class="fa fa-shopping-cart fa-3x mr-auto my-sm-0" aria-hidden="true"></i>
   </div>
-  <div class="col-sm"><span class="badge badge-pill badge-danger">{{nbCoursAjoutes}}</span></div>
+  <div class="col-sm position-badge">
+    <span class="badge badge-pill badge-danger">1</span></div>
   
 </div>
   

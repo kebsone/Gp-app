@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import {Cour} from '../shared/cour-model'
 import {ListCoursService} from '../services/list-cours-services/list-cours.service';
+import { ListCoursChoisisService } from '../services/list-cours-choisis-services/list-cours-choisis.service';
+import { ActivatedRoute , Router} from '@angular/router';
 
 @Component({
   selector: 'courses-list',
@@ -15,8 +17,13 @@ export class CoursesListComponent implements OnInit {
   coursPanier: Observable<Array<Cour>>;
   coursPanierTmp : Array<Cour>;
   coursesObservable: Observable<any[]>;
+  url: String;
 
-  constructor(private listCousService: ListCoursService) { 
+  constructor(private listCousService: ListCoursService,
+     private listCoursChoisisService: ListCoursChoisisService,
+     private activatefRouter : ActivatedRoute,
+     private router: Router
+    ) { 
   }
 
   ngOnInit() {
@@ -30,12 +37,25 @@ export class CoursesListComponent implements OnInit {
    // return this.db.list(listPath).valueChanges();
   }*/
 
+  /*public getListCoursChoisis() : Observable<Array<Cour>>{
+    return Observable.of(this.coursPanierTmp);
+
+  }*/
+
   public ajouterCour(course){
     console.log("fsfsfsfsfsffs", course);
     this.coursPanierTmp  =  Array<Cour>();
     this.coursPanierTmp.push(course);
-;
-    this.listCousService.setListCours(Observable.of(this.coursPanierTmp));
+    this.listCoursChoisisService.setNombreDeCoursChoisis(this.coursPanierTmp.length);
+
+  }
+
+  public doSomeThing() {
+    alert("clickable");
+  }
+
+  public afficherDetailsCour (cour){
+   
 
   }
 

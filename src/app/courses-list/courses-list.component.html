@@ -3,9 +3,10 @@
 </div>
 
 
-<div class="starter-template"><ul>
+<div class="starter-template" style="cursor:pointer">
+  <ul>
   <div *ngFor="let course of cours">
-    <ngb-alert type="info" [dismissible]="false" >
+    <a [routerLink]="['/cours', course.detail]" class="ancrage"> <ngb-alert type="info" [dismissible]="false" >
       <h3><a href="{{course.url}}">{{course.desc}}</a></h3>
       <p>{{course.title}}</p>
       <p>{{course.prix}}</p>
@@ -14,6 +15,7 @@
         <a (click)="ajouterCour(course)" target="_blank" class="btn btn-success" >Ajouter</a>
       </div>
     </ngb-alert>
+  </a>
   </div>
 </ul>
 </div>

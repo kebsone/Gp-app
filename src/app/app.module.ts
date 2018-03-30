@@ -11,7 +11,6 @@ import {appRoutes} from './app.route';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-
 import { environment } from './../environments/environment';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';

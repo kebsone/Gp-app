@@ -1,0 +1,5 @@
+1) Enlever la décoration de texte pour la balise <a> .
+
+Ajouter du css : a.ancrage :hover{text-decoration:noe;} ensuite ajoute la classe ancrage dans ta balise a.
+
+2) Pour les fonctions avec retour préviléger d'utiliser des variables local déclarer avec le mot clé let qui contrairement à  à var n'est pas hosted
